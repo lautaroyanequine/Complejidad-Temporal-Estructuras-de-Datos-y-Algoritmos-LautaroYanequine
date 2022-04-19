@@ -26,15 +26,59 @@ namespace ArbolBinario_Heap
 			
 			arbolBinarioA.agregarHijoIzquierdo(hijoIzquierdo);
 			arbolBinarioA.agregarHijoDerecho(hijoDerecho);
-
+			Console.WriteLine("Recorrido Preorden: ");
 			arbolBinarioA.preorden();
+			Console.WriteLine(" ");
+			Console.WriteLine("Recorrido por Inorden(Agregando el 8): ");
+			arbolBinarioA.agregar(8);
 			arbolBinarioA.inorden();
+			Console.WriteLine(" ");
+			Console.WriteLine("Recorrido por Postorden: ");
 			arbolBinarioA.postorden();
+			Console.WriteLine(" ");
+		
+			Console.WriteLine("Recorrido por niveles: ");
 			arbolBinarioA.recorridoPorNiveles();
+			Console.WriteLine(" ");
+			
+			Console.WriteLine("Contar hojas");
+			Console.WriteLine(arbolBinarioA.contarHojas());
+			Console.WriteLine(" " );
+			Console.WriteLine("Recorrido entre niveles");
+			arbolBinarioA.recorridoEntreNiveles(1,2);
+			Console.WriteLine(" ");
+			Console.WriteLine("Metodo Incluye(10):");
+			Console.WriteLine(arbolBinarioA.incluye(10));
+			
+			
+			//Red Binaria Llena
+			RedBinarialLlena RedBinarialLlenaA = new RedBinarialLlena(1);
+			
+			RedBinarialLlena hijoIzquierdoRB=new RedBinarialLlena(2);
+			hijoIzquierdoRB.agregarHijoIzquierdo(new RedBinarialLlena(3));
+			hijoIzquierdoRB.agregarHijoDerecho(new RedBinarialLlena(4));
+			
+			RedBinarialLlena hijoDerechoRB=new RedBinarialLlena(5);
+			hijoDerechoRB.agregarHijoIzquierdo(new RedBinarialLlena(6));
+			hijoDerechoRB.agregarHijoDerecho(new RedBinarialLlena(7));
+			 
+			RedBinarialLlenaA.agregarHijoIzquierdo(hijoIzquierdoRB);
+			RedBinarialLlenaA.agregarHijoDerecho(hijoDerechoRB);
+			Console.WriteLine("El retardo es de ");
+			Console.WriteLine(RedBinarialLlenaA.retardoReenvio());
+			
+			Console.WriteLine("\n \n");
+			Console.WriteLine("Punto 4. Profundidad de Arbol binario nivel 2 ");
+			ProfundidadArbolBinario r= new ProfundidadArbolBinario(arbolBinarioA);
+			Console.WriteLine(r.SumaElementosProfundiad(2));
+			
+			
 			Console.Write("Presione una tecla para concluir la ejecucion . . . ");
 			Console.ReadKey(true);
 			
 			Console.WriteLine("Hello World!");
+			
+	
 			
 			// TODO: Implement Functionality Here
 			
