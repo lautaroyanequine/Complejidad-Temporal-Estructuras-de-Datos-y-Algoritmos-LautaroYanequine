@@ -24,6 +24,11 @@ namespace ArbolBinario_Heap
 			this.esMaxHeap 	= esMaxHeap;
 			
 			// Implementar BuilHeap
+			int tamaño=datos.Count;
+			for(int i=tamaño/2-1; i >= 0 ;i--)
+			{
+				FiltradoHaciaAbajo(i);
+			}
 		}
 		
 		public void Agregar(T elemento){
@@ -58,11 +63,133 @@ namespace ArbolBinario_Heap
 		}
 		
 		private void FiltradoHaciaArriba(int idx){
-			// implementar
+			if(esMaxHeap)
+			{
+				for(int i = idx; i>0;i=(i-1)/2)
+				{
+					
+					int auxiliar=datos[i].CompareTo(datos[(i-1)/2]);
+					if(auxiliar>0)
+					{
+						Swap(i,(i-1)/2);
+					}
+					else
+						break;
+				}
+			}
+			else
+			{
+				for(int i = idx; i>0;i=(i-1)/2)
+				{
+					int auxiliar=datos[i].CompareTo(datos[(i-1)/2]);
+					if(auxiliar<0)
+					{
+						Swap(i,(i-1)/2);
+					}
+					else
+						break;
+				}
+			}
+			
 		}
 		
 		private void FiltradoHaciaAbajo(int idx){
 			// implementar
+			int longitud=datos.Count;
+			if(esMaxHeap)
+			{
+				for(int i = idx; i<longitud;)
+				{
+					if(i*2+1 <= longitud && i*2+2 < longitud)   //Caso ideal que tenga los dos hijos
+					{
+						int auxiliar1=datos[i*2+1].CompareTo(datos[i*2+2]);   //A ver cual es mayor
+						if(auxiliar1 >= 0)   //Si el primer hijo es mayor
+						{
+							int auxiliar2=datos[i].CompareTo(datos[i*2+1]);  //Lo comparo con la raiz
+							if( auxiliar2 < 0 )    //Si es mayor el hijo
+							{
+								Swap(i*2+1,i);
+								i=i*2+1;
+							}
+							else
+								break;
+						}
+						else
+						{
+							int auxiliar2=datos[i].CompareTo(datos[i*2+2]);
+							if( auxiliar2 < 0 )
+							{
+								Swap(i*2+2,i);
+								i=i*2+2;
+							}
+							else
+								break;
+						}
+						
+					}
+					else if (i*2+2 >=longitud && i*2+1 < longitud )  //Si solo existe hijo izquierdo
+					{
+						int auxiliar= datos[i].CompareTo(datos[i*2+1]);  
+						if(auxiliar < 0)   
+						{
+							Swap(i*2+1,i);
+								i=i*2+1;
+						}
+						else 
+							break;
+						
+					}
+					else                  //Si no tiene hijos
+						break;
+				}
+			}
+			else
+			{
+				for(int i = idx; i<longitud;)
+				{
+					if(i*2+1 <= longitud && i*2+2 < longitud)   //Caso ideal que tenga los dos hijos
+					{
+						int auxiliar1=datos[i*2+1].CompareTo(datos[i*2+2]);
+						if(auxiliar1 <= 0)  //Si el hijo izquierdo es menor
+						{
+							int auxiliar2=datos[i].CompareTo(datos[i*2+1]);
+							if( auxiliar2 > 0 ) //Si el hijo izquierdo es menor
+							{
+								Swap(i*2+1,i);
+								i=i*2+1;
+							}
+							else
+								break;
+						}
+						else
+						{
+							int auxiliar2=datos[i].CompareTo(datos[i*2+2]);
+							if( auxiliar2 > 0 )
+							{
+								Swap(i*2+2,i);
+								i=i*2+2;
+							}
+							else
+								break;
+						}
+						
+					}
+					else if (i*2+2 >= longitud && i*2+1 < longitud )  //Si solo existe hijo izquierdo
+					{
+						int auxiliar= datos[i].CompareTo(datos[i*2+1]);
+						if(auxiliar > 0)
+						{
+							Swap(i*2+1,i);
+								i=i*2+1;
+						}
+						else 
+							break;
+						
+					}
+					else                  //Si no tiene hijos
+						break;
+				}
+			}
 		}
 		
 		private void Swap(int idx1, int idx2){

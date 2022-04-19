@@ -7,6 +7,7 @@
  * Para cambiar esta plantilla use Herramientas | Opciones | Codificación | Editar Encabezados Estándar
  */
 using System;
+using System.Collections.Generic;
 
 namespace ArbolBinario_Heap
 {
@@ -72,13 +73,42 @@ namespace ArbolBinario_Heap
 			ProfundidadArbolBinario r= new ProfundidadArbolBinario(arbolBinarioA);
 			Console.WriteLine(r.SumaElementosProfundiad(2));
 			
+			Console.WriteLine("\n \n");
+			
+			Console.WriteLine("Heap");
+			Heap<int> heap= new Heap<int>(false);
+			heap.Agregar(10);
+			heap.Agregar(2);
+			heap.Agregar(3);
+			heap.Agregar(40);
+			heap.Agregar(500);
+			heap.Agregar(6);
+
+			Console.WriteLine(heap.Eliminar());
+			Console.WriteLine(heap.Eliminar());
+			heap.Agregar(10);
+			Console.WriteLine(heap.Eliminar());
+			
+			
+			Console.WriteLine("\n \n");
+			Console.WriteLine("Heap con Buildheap");
+			List<int> arrayr = new List<int>{100,2,3,500};
+			Heap<int> heap2= new Heap<int>(arrayr,true);
+			Console.WriteLine(heap2.Tope());
+			
+			Console.WriteLine("\n \n");
+			Console.WriteLine("Metodo Impresora");
+			List<string> arrayst = new List<String>{"Hola","Como Estas","Todo Bien","jaj"};
+			Heap<string> impresora = new Heap<string>(arrayst,true);
+			impresora.Agregar("zzz");
+			Console.WriteLine(impresora.Eliminar());
 			
 			Console.Write("Presione una tecla para concluir la ejecucion . . . ");
 			Console.ReadKey(true);
 			
 			Console.WriteLine("Hello World!");
 			
-	
+		
 			
 			// TODO: Implement Functionality Here
 			
