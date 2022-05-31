@@ -47,6 +47,7 @@ namespace ArbolBinario_Heap
 		
 		public bool incluye (T generico)
 		{
+			/*
 			Cola<ArbolBinario<T>> c = new Cola<ArbolBinario<T>>();
 			ArbolBinario<T> arbolAux;
 			c.encolar(this);
@@ -63,23 +64,28 @@ namespace ArbolBinario_Heap
 				if(arbolAux.hijoDerecho != null)
 					c.encolar(arbolAux.hijoDerecho);
 			}
-			return existe;
-			/*
-					{
+			return existe;*/
+			//Otra forma hacaer un or logica entre bool de hijos
+			
 			bool existe=false;
-			
-			il
-			
-				//Hijo izquierdo recursivamente
-				if(this.hijoIzquierdo != null)
-					this.hijoIzquierdo.preorden();	
-				//Hijo derecho recursivamente			
-				if(this.hijoDerecho != null)
-					this.hijoDerecho.preorden();
-				//Raiz(dato)
 				
+			if(this.dato.Equals(generico))
+				{
+					existe=true;
+					return existe;
+				}
+		
+					
+			if(this.hijoIzquierdo != null)
+				existe=this.hijoIzquierdo.incluye(generico);
+			
+			if(!existe){
+			if(this.hijoDerecho != null)
+			existe=	this.hijoDerecho.incluye(generico);
+			}
 			return existe;
-		}*/
+			
+
 		}
 		
 		public void agregar(T generico)

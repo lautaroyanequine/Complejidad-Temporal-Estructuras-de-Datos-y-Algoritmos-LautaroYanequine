@@ -48,9 +48,11 @@ namespace ArbolBinario_Heap
 			Console.WriteLine("Recorrido entre niveles");
 			arbolBinarioA.recorridoEntreNiveles(1,2);
 			Console.WriteLine(" ");
-			Console.WriteLine("Metodo Incluye(10):");
+			Console.WriteLine("Metodo Incluye(Valor 10):");
 			Console.WriteLine(arbolBinarioA.incluye(10));
-			
+			Console.WriteLine("Metodo Incluye(Valor 2):");
+			Console.WriteLine(arbolBinarioA.incluye(2));
+			/*
 			
 			//Red Binaria Llena
 			RedBinarialLlena RedBinarialLlenaA = new RedBinarialLlena(1);
@@ -102,7 +104,7 @@ namespace ArbolBinario_Heap
 			Heap<string> impresora = new Heap<string>(arrayst,true);
 			impresora.Agregar("zzz");
 			Console.WriteLine(impresora.Eliminar());
-			
+			*/
 			Console.Write("Presione una tecla para concluir la ejecucion . . . ");
 			Console.ReadKey(true);
 			
